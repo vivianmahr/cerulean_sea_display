@@ -12,6 +12,5 @@ import c_sea_dir.views
 
 urlpatterns = [
     url(r'^$', c_sea_dir.views.index, name='index'),
-    url(r'^db', c_sea_dir.views.db, name='db'),
     path('admin/', admin.site.urls),
 ]

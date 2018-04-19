@@ -3,21 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-	<!--{% load static %} -->
-
-	<!--<link rel="stylesheet" type="text/css" href="{% static 'text_analysis/chat.css'%}"/>-->
-	<link rel="stylesheet" type="text/css" href="chat.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	<script src="./c_sea.js"></script>
 
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'chat.css'%}"/>
+	<script src="{% static 'c_sea_display.js'%}"></script>
 </head>
-<body>
+<body ng-app>
 	<div class="content-div">
 		<div class="chatbox-ratio-wrapper">
 			<div id="chat-column">
 				<div class="display-wrapper">
-					<div id="reply-div" class="info-box">
-						<span class="reply">word</span>
+					<div id="replies-div" class="info-box">
+						<div class="reply">
+							<p>Hello! My name is Kyte from Cerulean Sea. I am a program who will try to analyze your sentence and answer from a list of replies. Here are my instructions: </p>
+								<p>1) Please use proper grammar and spelling with me! I am a young bot who hasn't learned how to autocorrect yet. </p>
+								<p>2) Only send in one sentence at a time.</p>
+								<p>3) I have learned some special commands. If you are interested, ask about "special commands" or try asking who my creator is.</p>
+						</div>
 					</div>
 				</div>
 				<div class="display-wrapper">
@@ -29,26 +32,10 @@
 			</div>
 			<div id="hover-column">
 				<div class="display-wrapper">
-					<div id="hover-box" class='info-box'>
-						<h3>Word</h3>
-						<h4>Part of Speech - Noun</h4>
-							<p> POS is this.</p>
-							<p>nouns are these.</p>
-						<h4>Lemma - word</h4>
-							<p> lemma is this.</p>
-							<p>nouns are these.</p>
-						<h4>Shape - word</h4>
-							<p> Shape is this.</p>
-						<h4>alpha - word</h4>
-							<p>nouns are these.</p>
-						<h4>stop - word</h4>
-							<p>stop are these.</p>
-
-						<p>if you want to know more about somthing, ask me. </p>
+					<div id="hover-box" class='info-box' ng-controller = "replyController">
 						<p>
-							Select a processed word for in-depth information. (You will need to send some text for processing first.)cessed word for in-depth information. (You will need to send some text for processing first.)
+							Select a processed word for in-depth information. (You will need to send some text for processing first.)
 						</p>
-
 					</div>
 				</div>
 			</div>
