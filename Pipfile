@@ -8,6 +8,7 @@ gunicorn = "*"
 django-heroku = "*"
 requests = "*"
 spacy = "*"
+en_core_web_sm = { file = 'https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz' }
 
 [requires]
 python_version = "3.6"
