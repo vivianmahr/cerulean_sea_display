@@ -7,7 +7,7 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 requests = "*"
-spacy="*"
+spacy = "*"
 
 [requires]
 python_version = "3.6"
