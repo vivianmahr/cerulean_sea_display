@@ -1,6 +1,6 @@
 <div ng-if="!isText">
 	<table>
-		<thead>
+		<thead ng-if="tokens.length > 0">
 			<tr>
 				<th class="original">Original</th>
 				<th class="lemma">Lemma</th>

@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import JsonResponse
 import requests
+import sentence_processing
 import json
 import spacy
-nlp = spacy.load('en')
 
+nlp = spacy.load('en')
 def to_token_dict(token):
 	result = {
 		"original": token.text,
@@ -15,10 +16,7 @@ def to_token_dict(token):
 		"isStop": token.is_stop
 	}
 	return result
-
-def _is_special(sentence):
-	return False
-
+	
 # Create your views here.
 def index(request):
     return render(request, "index.html")
@@ -29,12 +27,17 @@ def process_sentence(request):
 	tokens = []
 	text = []
 
-	if not (_is_special(sentence)):
+	special = sentence_processing.is_special_case(sentence.lower())
+
+	if not (special[0]):
 		nlp_sent = nlp(sentence)
 		is_text = False
 		tokens = [to_token_dict(t) for t in nlp_sent]
-		text = ["I think it's a question?"]
-
+		text = []
+	else:
+		is_text = True
+		tokens = []
+		text = special[1].split("\n")
 	return JsonResponse({
 		"isText" : is_text,
 		"tokens" : tokens,
