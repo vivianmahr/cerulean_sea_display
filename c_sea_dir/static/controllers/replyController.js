@@ -35,22 +35,6 @@ reply_controller.directive('replyTable', function() {
   }; 
 });
 
-reply_controller.directive("inputDirective", function(){
-    return { 
-		sendSentence: function (scope, element, attrs) {
-        	element.bind("keydown keypress", function (event) {
-        		alert(1);
-            	if(event.which === 13) {
-                	scope.$apply(function (){
-                    	alert();
-                	});
-                	event.preventDefault();
-            	}
-        	});
-	    }
-	};
-});
-
 reply_controller.directive('explanation', function() { 
   return { 
     templateUrl: "static/directives/explanation.html"
