@@ -6,11 +6,8 @@ admin.autodiscover()
 
 import c_sea_dir.views
 
-# Examples:
-# url(r'^$', 'gettingstarted.views.home', name='home'),
-# url(r'^blog/', include('blog.urls')),
-
 urlpatterns = [
     url(r'^$', c_sea_dir.views.index, name='index'),
+    url(r'^process_sentence/$', c_sea_dir.views.process_sentence, name='process_sentence'),
     path('admin/', admin.site.urls),
 ]

@@ -1,0 +1,24 @@
+<div ng-if="!isText">
+	<table>
+		<thead>
+			<tr>
+				<th class="original">Original</th>
+				<th class="lemma">Lemma</th>
+				<th class="pos">POS</th>
+				<th class="shape">Shape</th>
+				<th class="is-stop">Is Stop</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="token in tokens" ng-click="update_info_div($event, token)">
+				<th class="original">{{ token.original }}</th>
+				<th class="lemma">{{ token.lemma }}</th>
+				<th class="pos">{{ token.pos }}</th>
+				<th class="shape">{{ token.shape }}</th>
+				<th class="is-stop" ng-if="token.isStop">True</th>
+				<th class="is-stop" ng-if="!token.isStop">False</th>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<p ng-repeat="line in textContents">{{line}}</p>

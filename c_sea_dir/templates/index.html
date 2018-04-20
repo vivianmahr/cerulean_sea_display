@@ -7,35 +7,28 @@
 
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'chat.css'%}"/>
-	<script src="{% static 'c_sea_display.js'%}"></script>
 </head>
-<body ng-app>
-	<div class="content-div">
+<body ng-app="c_sea">
+	<div class="content-div" ng-controller="replyController">
 		<div class="chatbox-ratio-wrapper">
 			<div id="chat-column">
 				<div class="display-wrapper">
 					<div id="replies-div" class="info-box">
-						<div class="reply">
-							<p>Hello! My name is Kyte from Cerulean Sea. I am a program who will try to analyze your sentence and answer from a list of replies. Here are my instructions: </p>
-								<p>1) Please use proper grammar and spelling with me! I am a young bot who hasn't learned how to autocorrect yet. </p>
-								<p>2) Only send in one sentence at a time.</p>
-								<p>3) I have learned some special commands. If you are interested, ask about "special commands" or try asking who my creator is.</p>
+						<div class="reply"">
+							<div reply-table tokens=tokens isText=isText lineContents=lineContents></div>
 						</div>
 					</div>
 				</div>
 				<div class="display-wrapper">
 					<div id="input-div" class="info-box">
-						<textarea id="text-input" name="input-text" autocomplete="off" placeholder="Type something here and hit enter."></textarea>
+						<textarea id="text-input" name="input-text" autocomplete="off" placeholder="Type something here and hit enter." ng-keydown="sendSentence($event)" ng-model="sentence"></textarea>
 						<br/>
 					</div>
 				</div>
 			</div>
 			<div id="hover-column">
 				<div class="display-wrapper">
-					<div id="hover-box" class='info-box' ng-controller = "replyController">
-						<p>
-							Select a processed word for in-depth information. (You will need to send some text for processing first.)
-						</p>
+					<div id="hover-box" class='info-box' explanation>
 					</div>
 				</div>
 			</div>
@@ -45,4 +38,6 @@
 	</div>
 </body>
 
+<script src="{% static 'c_sea_display.js'%}"></script>
+<script src="{% static './controllers/replyController.js'%}"></script>
 </html>

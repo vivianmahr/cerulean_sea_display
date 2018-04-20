@@ -57,7 +57,7 @@ ROOT_URLCONF = 'gettingstarted.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["/c_sea_dir/static/directives"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

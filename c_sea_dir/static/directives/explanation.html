@@ -1,0 +1,31 @@
+<div ng-if="selected_token===-1">
+	<p>Select a processed word for in-depth information. (You will need to send some text for processing first.)</p>
+</div>
+<div ng-if="selected_token!==-1">
+	<h3>{{ selected_token.original }}</h3>
+	<h4>Lemma - {{ selected_token.lemma }}</h4>
+	  <p>Lemmas are the dictionary form of a word.</p>
+	<h4>Part of Speech - {{ selected_token.pos }}</h4>
+	  <p>Parts of speech are a way of categorizing words. I use Universal Dependencies to categorize parts of speech.</p>
+	  <p ng-if="selected_token.pos==='ADJ'">Adjectives are descriptive words that modify objects.</p>
+	  <p ng-if="selected_token.pos==='ADP'">Adpositions are more commonly known as prepositions or postpositions. They describe relationships between other words.</p>
+	  <p ng-if="selected_token.pos==='ADV'">Adverbs describe how actions were performed</p>
+	  <p ng-if="selected_token.pos==='AUX">Auxiliary verbs are often classified as verbs or helper verbs. They further modify other verbs.</p>
+	  <p ng-if="selected_token.pos==='CCONJ'">Coordinating conjunctions link words or phrases without making one word or phrase suboordinate to the other. </p>
+	  <p ng-if="selected_token.pos==='DET'">Determiners are used to express which noun or noun phrase is being referred to in a context.</p>
+	  <p ng-if="selected_token.pos==='INTJ'">Yay! Interjections are yelling words and exclamations.</p>
+	  <p ng-if="selected_token.pos==='NOUN'">Nouns are objects.</p>
+	  <p ng-if="selected_token.pos==='NUM'">Numbers are numbers.</p>
+	  <p ng-if="selected_token.pos==='PART'">Particles are very strange and they don't seem very common in English. They modify another word, but for some reason, they do not fit into any other part of speech. The one you are most familiar is probably "'s", or the possessive modifier.</p>
+	  <p ng-if="selected_token.pos==='PRON'">Pronouns replace nouns when you get tired of saying the same noun over and over again.</p>
+	  <p ng-if="selected_token.pos==='PROPN'">Proper Nouns are nouns, but specific like names.</p>
+	  <p ng-if="selected_token.pos==='PUNCT'">Punctuation is includes things like periods and exclamation marks. </p>
+	  <p ng-if="selected_token.pos==='SCONJ'">Subordinating Conjunctions join phrases, but when they do, one phrase is subordinate and doesn't really make sense without the other.</p>
+	  <p ng-if="selected_token.pos==='SYM'">Symbols. You went out of your way to type something strange in, huh?</p>
+	  <p ng-if="selected_token.pos==='VERB'">Verbs are actions.</p>
+	  <p ng-if="selected_token.pos==='X'">You've said something very strange, and I can't figure out what it should be.</p>
+	<h4>Shape - {{ selected_token.shape }}</h4>
+	  <p> The shape, or geography of a word, includes information about capitalization, punctuation, and numerals. </p>
+	<h4>Is Stop - {{ selected_token.isStop }}</h4>
+	  <p>Stops are extremely common words in a language. They are omitted in some text processing to reduce noise.</p>	
+</div>

@@ -83,7 +83,6 @@ textarea {
 
 .display-wrapper #replies-div .reply {
 	border-radius: 0;
-	border-bottom: 2px solid #3f3f3f;
 }
 
 .reply table {
@@ -107,7 +106,6 @@ textarea {
 .reply tr {
 	display: block;
 	width: 100%;
-
 	border-bottom: 1px solid #000000;
 	text-align: left;
 }
